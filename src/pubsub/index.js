@@ -12,9 +12,6 @@ const { codes } = require('./errors')
  * @type {typeof import('./message')}
  */
 const message = require('./message')
-// needed for type definition
-// eslint-disable-next-line no-unused-vars
-const PeerId = require('peer-id')
 const PeerStreams = require('./peer-streams')
 const utils = require('./utils')
 
@@ -82,7 +79,7 @@ class PubsubBaseProtocol extends EventEmitter {
     this._libp2p = libp2p
     this.registrar = libp2p.registrar
     /**
-     * @type {typeof PeerId}
+     * @type {import("peer-id")}
      */
     this.peerId = libp2p.peerId
 
@@ -104,7 +101,7 @@ class PubsubBaseProtocol extends EventEmitter {
     /**
      * Map of peer streams
      *
-     * @type {Map<string, typeof PeerStreams>}
+     * @type {Map<string, import("./peer-streams")>}
      */
     this.peers = new Map()
 
@@ -220,7 +217,7 @@ class PubsubBaseProtocol extends EventEmitter {
   /**
    * Registrar notifies an established connection with pubsub protocol.
    * @private
-   * @param {PeerId} peerId remote peer-id
+   * @param {import("peer-id")} peerId remote peer-id
    * @param {Connection} conn connection to the peer
    */
   async _onPeerConnected (peerId, conn) {
@@ -242,7 +239,7 @@ class PubsubBaseProtocol extends EventEmitter {
   /**
    * Registrar notifies a closing connection with pubsub protocol.
    * @private
-   * @param {PeerId} peerId peerId
+   * @param {import("peer-id")} peerId peerId
    * @param {Error} err error for connection end
    */
   _onPeerDisconnected (peerId, err) {
@@ -255,7 +252,7 @@ class PubsubBaseProtocol extends EventEmitter {
   /**
    * Notifies the router that a peer has been connected
    * @private
-   * @param {PeerId} peerId
+   * @param {import("peer-id")} peerId
    * @param {string} protocol
    * @returns {PeerStreams}
    */
@@ -285,7 +282,7 @@ class PubsubBaseProtocol extends EventEmitter {
   /**
    * Notifies the router that a peer has been disconnected.
    * @private
-   * @param {PeerId} peerId
+   * @param {import("peer-id")} peerId
    * @returns {PeerStreams | undefined}
    */
   _removePeer (peerId) {

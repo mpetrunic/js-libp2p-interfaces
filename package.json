@@ -14,6 +14,7 @@
     "lint": "aegir lint",
     "build": "aegir build",
     "generate:types": "tsc",
+    "clean:types": "rm -rf src/**/*.d.ts && rm -rf src/pubsub/message/*.d.ts",
     "test": "aegir test",
     "test:node": "aegir test --target node",
     "test:browser": "aegir test --target browser",

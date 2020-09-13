@@ -332,7 +332,7 @@ declare module "src/pubsub/peer-streams" {
         /**
          * An AbortController for controlled shutdown of the inbound stream
          * @private
-         * @type {AbortController}
+         * @type {typeof AbortController}
          */
         _inboundAbortController: AbortController;
         /**
