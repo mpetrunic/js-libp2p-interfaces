@@ -41,9 +41,9 @@ declare class PubsubBaseProtocol {
     _libp2p: any;
     registrar: any;
     /**
-     * @type {PeerId}
+     * @type {import("peer-id")}
      */
-    peerId: PeerId;
+    peerId: import("peer-id");
     started: boolean;
     /**
      * Map of topics to which peers are subscribed to
@@ -282,7 +282,6 @@ declare class PubsubBaseProtocol {
 declare namespace PubsubBaseProtocol {
     export { message, utils, InMessage };
 }
-declare const PeerId: typeof import("peer-id");
 /**
  * Topic validator function
  */

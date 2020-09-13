@@ -82,7 +82,7 @@ class PubsubBaseProtocol extends EventEmitter {
     this._libp2p = libp2p
     this.registrar = libp2p.registrar
     /**
-     * @type {PeerId}
+     * @type {import("peer-id")}
      */
     this.peerId = libp2p.peerId
 
