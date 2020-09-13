@@ -41,9 +41,9 @@ declare class PubsubBaseProtocol {
     _libp2p: any;
     registrar: any;
     /**
-     * @type {import("peer-id")}
+     * @type {PeerId}
      */
-    peerId: import("peer-id");
+    peerId: PeerId;
     started: boolean;
     /**
      * Map of topics to which peers are subscribed to
@@ -107,14 +107,14 @@ declare class PubsubBaseProtocol {
     /**
      * Registrar notifies an established connection with pubsub protocol.
      * @private
-     * @param {import("peer-id")} peerId remote peer-id
+     * @param {PeerId} peerId remote peer-id
      * @param {Connection} conn connection to the peer
      */
     _onPeerConnected(peerId: import("peer-id"), conn: any): Promise<void>;
     /**
      * Registrar notifies a closing connection with pubsub protocol.
      * @private
-     * @param {import("peer-id")} peerId peerId
+     * @param {PeerId} peerId peerId
      * @param {Error} err error for connection end
      */
     _onPeerDisconnected(peerId: import("peer-id"), err: Error): void;
@@ -131,7 +131,7 @@ declare class PubsubBaseProtocol {
     /**
      * Notifies the router that a peer has been connected
      * @private
-     * @param {import("peer-id")} peerId
+     * @param {PeerId} peerId
      * @param {string} protocol
      * @returns {PeerStreams}
      */
@@ -139,7 +139,7 @@ declare class PubsubBaseProtocol {
     /**
      * Notifies the router that a peer has been disconnected.
      * @private
-     * @param {import("peer-id")} peerId
+     * @param {PeerId} peerId
      * @returns {PeerStreams | undefined}
      */
     _removePeer(peerId: import("peer-id")): import("./peer-streams");
@@ -282,6 +282,7 @@ declare class PubsubBaseProtocol {
 declare namespace PubsubBaseProtocol {
     export { message, utils, InMessage };
 }
+declare const PeerId: typeof import("peer-id");
 /**
  * Topic validator function
  */

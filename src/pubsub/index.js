@@ -19,6 +19,9 @@ const {
   signMessage,
   verifySignature
 } = require('./message/sign')
+// needed for type definition
+// eslint-disable-next-line no-unused-vars
+const PeerId = require('peer-id')
 
 /**
  * @typedef {Object} InMessage
@@ -79,7 +82,7 @@ class PubsubBaseProtocol extends EventEmitter {
     this._libp2p = libp2p
     this.registrar = libp2p.registrar
     /**
-     * @type {import("peer-id")}
+     * @type {PeerId}
      */
     this.peerId = libp2p.peerId
 
@@ -217,7 +220,7 @@ class PubsubBaseProtocol extends EventEmitter {
   /**
    * Registrar notifies an established connection with pubsub protocol.
    * @private
-   * @param {import("peer-id")} peerId remote peer-id
+   * @param {PeerId} peerId remote peer-id
    * @param {Connection} conn connection to the peer
    */
   async _onPeerConnected (peerId, conn) {
@@ -239,7 +242,7 @@ class PubsubBaseProtocol extends EventEmitter {
   /**
    * Registrar notifies a closing connection with pubsub protocol.
    * @private
-   * @param {import("peer-id")} peerId peerId
+   * @param {PeerId} peerId peerId
    * @param {Error} err error for connection end
    */
   _onPeerDisconnected (peerId, err) {
@@ -252,7 +255,7 @@ class PubsubBaseProtocol extends EventEmitter {
   /**
    * Notifies the router that a peer has been connected
    * @private
-   * @param {import("peer-id")} peerId
+   * @param {PeerId} peerId
    * @param {string} protocol
    * @returns {PeerStreams}
    */
@@ -282,7 +285,7 @@ class PubsubBaseProtocol extends EventEmitter {
   /**
    * Notifies the router that a peer has been disconnected.
    * @private
-   * @param {import("peer-id")} peerId
+   * @param {PeerId} peerId
    * @returns {PeerStreams | undefined}
    */
   _removePeer (peerId) {

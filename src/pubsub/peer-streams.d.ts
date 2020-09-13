@@ -9,7 +9,7 @@ export = PeerStreams;
 declare class PeerStreams {
     /**
      * @param {object} properties properties of the PeerStreams.
-     * @param {import("peer-id")} properties.id
+     * @param {PeerId} properties.id
      * @param {string} properties.protocol
      */
     constructor({ id, protocol }: {

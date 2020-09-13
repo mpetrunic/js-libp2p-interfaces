@@ -8,6 +8,9 @@ const pipe = require('it-pipe')
 const abortable = require('abortable-iterator')
 const AbortController = require('abort-controller')
 const debug = require('debug')
+// needed for type definition
+// eslint-disable-next-line no-unused-vars
+const PeerId = require('peer-id')
 const log = debug('libp2p-pubsub:peer-streams')
 log.error = debug('libp2p-pubsub:peer-streams:error')
 
@@ -22,7 +25,7 @@ log.error = debug('libp2p-pubsub:peer-streams:error')
 class PeerStreams extends EventEmitter {
   /**
    * @param {object} properties properties of the PeerStreams.
-   * @param {import("peer-id")} properties.id
+   * @param {PeerId} properties.id
    * @param {string} properties.protocol
    */
   constructor ({ id, protocol }) {
