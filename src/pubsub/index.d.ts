@@ -80,7 +80,7 @@ declare class PubsubBaseProtocol {
     emitSelf: boolean;
     /**
      * Topic validator function
-     * @typedef {function(string, RPC): boolean} validator
+     * @typedef {function(string, InMessage): void} validator
      */
     /**
      * Topic validator map
@@ -285,7 +285,7 @@ declare namespace PubsubBaseProtocol {
 /**
  * Topic validator function
  */
-type validator = (arg0: string, arg1: any) => boolean;
+type validator = (arg0: string, arg1: InMessage) => void;
 type InMessage = {
     from: string;
     receivedFrom: string;
